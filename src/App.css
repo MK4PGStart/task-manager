@@ -8,43 +8,32 @@
 
 .container {
   width: 100%;
-  max-width: 900px;
+  max-width: 1400px;
   background: #252525;
   border: 1px solid #3a3a3a;
-  padding: 40px;
-  animation: fadeIn 0.3s ease-in;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
 .app-header {
   text-align: left;
-  margin-bottom: 40px;
-  padding-bottom: 30px;
-  border-bottom: 2px solid #3a3a3a;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #3a3a3a;
 }
 
 .app-header h1 {
   color: #ffffff;
-  font-size: 2.2rem;
-  margin-bottom: 8px;
+  font-size: 2rem;
+  margin-bottom: 4px;
   font-weight: 600;
-  letter-spacing: -0.5px;
 }
 
 .subtitle {
   color: #888;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
 /* Адаптивность */
@@ -54,29 +43,27 @@
   }
 
   .container {
-    padding: 30px 20px;
+    padding: 20px;
+    border-radius: 12px;
   }
 
   .app-header {
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-  }
-
-  .app-header h1 {
-    font-size: 1.8rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    padding: 20px 15px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
   }
 
   .app-header h1 {
     font-size: 1.5rem;
   }
+}
 
-  .subtitle {
-    font-size: 0.85rem;
+@media (max-width: 480px) {
+  .container {
+    padding: 16px;
+    border-radius: 10px;
+  }
+
+  .app-header h1 {
+    font-size: 1.25rem;
   }
 }
