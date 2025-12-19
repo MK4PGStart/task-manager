@@ -15,6 +15,10 @@ RUN npm install && npm cache clean --force
 COPY public ./public
 COPY src ./src
 
+# Аргумент для переменной окружения API URL
+ARG REACT_APP_API_URL=http://localhost:8000
+ENV REACT_APP_API_URL=$REACT_APP_API_URL
+
 # Собираем production версию
 RUN npm run build
 
