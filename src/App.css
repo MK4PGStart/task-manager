@@ -8,40 +8,43 @@
 
 .container {
   width: 100%;
-  max-width: 800px;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  padding: 30px;
-  animation: fadeIn 0.5s ease-in;
+  max-width: 900px;
+  background: #252525;
+  border: 1px solid #3a3a3a;
+  padding: 40px;
+  animation: fadeIn 0.3s ease-in;
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(-20px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
 .app-header {
-  text-align: center;
-  margin-bottom: 30px;
+  text-align: left;
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  border-bottom: 2px solid #3a3a3a;
 }
 
 .app-header h1 {
-  color: #333;
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-  font-weight: 700;
+  color: #ffffff;
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
 }
 
 .subtitle {
-  color: #666;
-  font-size: 1rem;
+  color: #888;
+  font-size: 0.95rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* Адаптивность */
@@ -51,26 +54,29 @@
   }
 
   .container {
-    padding: 20px;
-    border-radius: 12px;
+    padding: 30px 20px;
+  }
+
+  .app-header {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
   }
 
   .app-header h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 }
 
 @media (max-width: 480px) {
   .container {
-    padding: 15px;
+    padding: 20px 15px;
   }
 
   .app-header h1 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
   }
 
   .subtitle {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 }
-
