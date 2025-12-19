@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
 from typing import List, Optional
 from app import models, schemas
+from app.models import TaskStatus
 from app.database import get_db
 
 router = APIRouter()
@@ -21,7 +22,7 @@ def create_task(task: schemas.TaskCreate, db: Session = Depends(get_db)):
 
 @router.get("/", response_model=List[schemas.TaskResponse])
 def get_tasks(
-    status: Optional[schemas.TaskStatus] = Query(None, description="Фильтр по статусу"),
+    status: Optional[TaskStatus] = Query(None, description="Фильтр по статусу"),
     db: Session = Depends(get_db)
 ):
     """Получение списка задач с опциональной фильтрацией по статусу"""
