@@ -1,20 +1,37 @@
 version: '3.8'
 
 services:
-  task-manager:
+  backend:
     build:
-      context: .
+      context: ./backend
       dockerfile: Dockerfile
-    container_name: task-manager
+    container_name: task-manager-api
     ports:
-      - "3000:80"
-    restart: unless-stopped
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - backend_db:/app
     environment:
-      - NODE_ENV=production
+      - DATABASE_URL=sqlite:///./tasks.db
+    restart: unless-stopped
     healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 40s
 
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: task-manager-frontend
+    ports:
+      - "3000:80"
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  backend_db:
