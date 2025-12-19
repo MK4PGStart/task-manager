@@ -1,0 +1,125 @@
+.task-card {
+  background: #252525;
+  border: 1px solid #3a3a3a;
+  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.task-card:hover {
+  border-color: #667eea;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+  transform: translateY(-2px);
+}
+
+.task-card[data-status="pending"] {
+  border-left-color: #ff9800;
+}
+
+.task-card[data-status="in_progress"] {
+  border-left-color: #2196f3;
+}
+
+.task-card[data-status="done"] {
+  border-left-color: #4caf50;
+}
+
+.task-card-content {
+  margin-bottom: 10px;
+}
+
+.task-card-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.task-card-description {
+  font-size: 0.875rem;
+  color: #b0b0b0;
+  margin: 0;
+  line-height: 1.5;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.task-card-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  padding-top: 10px;
+  border-top: 1px solid #3a3a3a;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.task-card:hover .task-card-actions {
+  opacity: 1;
+}
+
+.task-card-btn {
+  background: #3a3a3a;
+  border: none;
+  color: #e0e0e0;
+  font-size: 1.2rem;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  padding: 0;
+  line-height: 1;
+}
+
+.task-card-btn:hover {
+  background: #667eea;
+  color: white;
+  transform: scale(1.1);
+}
+
+.task-card-btn-delete:hover {
+  background: #f44336;
+  transform: scale(1.1);
+}
+
+.task-card-btn-move {
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .task-card {
+    padding: 12px;
+    border-radius: 6px;
+  }
+
+  .task-card-title {
+    font-size: 0.875rem;
+  }
+
+  .task-card-description {
+    font-size: 0.8125rem;
+  }
+
+  .task-card-actions {
+    opacity: 1;
+  }
+
+  .task-card-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+  }
+}
