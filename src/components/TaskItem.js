@@ -7,12 +7,6 @@ const STATUS_LABELS = {
   done: 'Выполнено'
 };
 
-const STATUS_COLORS = {
-  pending: '#ff9800',
-  in_progress: '#2196f3',
-  done: '#4caf50'
-};
-
 function TaskItem({ task, onUpdateStatus, onDelete, index }) {
   const handleStatusChange = (e) => {
     onUpdateStatus(task.id, e.target.value);
@@ -37,16 +31,14 @@ function TaskItem({ task, onUpdateStatus, onDelete, index }) {
   return (
     <div
       className="task-item"
-      style={{
-        animationDelay: `${index * 0.1}s`
-      }}
+      data-status={task.status}
     >
       <div className="task-content">
         <div className="task-header">
           <h3 className="task-title">{task.title}</h3>
           <span
             className="task-status-badge"
-            style={{ backgroundColor: STATUS_COLORS[task.status] }}
+            data-status={task.status}
           >
             {STATUS_LABELS[task.status]}
           </span>
